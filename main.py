@@ -1,19 +1,30 @@
 import streamlit as st
+import pandas
 
-# Set page configuration
 st.set_page_config(layout="wide")
 
-# Create two columns
 col1, col2 = st.columns(2)
 
-# Column 1: Display an image
 with col1:
-    st.image(r"E:\python_projects\portfolio\photo.png")
+    st.image("images/image.png")
 
-# Column 2: Display text content
 with col2:
-    st.title("Muchhintala Vishnu Priya")
-    content = "I'm learning Python currently."
+    st.title("Vishnu Priya Muchhintala")
+    content = """
+    Hi, I am Vishnu Priya Muchhintala! I am a Python programming learner. I'm into 3rd year of my  B.Tech in Computer Science & Engineering in Vidya Jyothi Institute of Technology from the University of Anurag in Hyderabad.
+    """
     st.info(content)
-    content2 = """ Here are some of the products i built . pls feel free to contact me for any queries"""
-    st.write(content2)
+col3,empty_col ,col4 = st.columns([1.5,0.5,1.5])
+df= pandas.read_csv("data.csv", sep=";")
+with col3:
+    for index,row in df[:10].iterrows():
+        st.header(row["title"])
+        st.write(row["description"])
+        st.write(f"[Source Code]({row['url']})")
+
+with col4:
+    for index,row in df[:10].iterrows():
+        st.header(row["title"])
+        st.write(row["description"])
+        st.image("images/" + row["image"])
+
