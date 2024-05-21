@@ -14,6 +14,10 @@ with col2:
     Hi, I am Vishnu Priya Muchhintala! I am a Python programming learner. I'm into 3rd year of my  B.Tech in Computer Science & Engineering in Vidya Jyothi Institute of Technology from the University of Anurag in Hyderabad.
     """
     st.info(content)
+    content2 = """
+Below are some of the projects that I did :"""
+st.write(content2)
+
 col3,empty_col ,col4 = st.columns([1.5,0.5,1.5])
 df= pandas.read_csv("data.csv", sep=";")
 with col3:
@@ -27,4 +31,5 @@ with col4:
         st.header(row["title"])
         st.write(row["description"])
         st.image("images/" + row["image"])
+
 
